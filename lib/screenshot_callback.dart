@@ -6,8 +6,7 @@ import 'package:flutter/services.dart';
 import 'package:permission_handler/permission_handler.dart';
 
 class ScreenshotCallback {
-  static const MethodChannel _channel =
-      const MethodChannel('flutter.moum/screenshot_callback');
+  static const MethodChannel _channel = const MethodChannel('flutter.moum/screenshot_callback');
 
   /// Functions to execute when callback fired.
   List<VoidCallback> onCallbacks = <VoidCallback>[];
@@ -18,8 +17,7 @@ class ScreenshotCallback {
   /// Defaults to `true`.
   bool requestPermissions;
 
-  ScreenshotCallback({this.requestPermissions}) {
-    requestPermissions ??= true;
+  ScreenshotCallback({this.requestPermissions = true}) {
     initialize();
   }
 
@@ -34,7 +32,6 @@ class ScreenshotCallback {
 
   /// Add void callback.
   void addListener(VoidCallback callback) {
-    assert(callback != null, 'A non-null callback must be provided.');
     onCallbacks.add(callback);
   }
 
